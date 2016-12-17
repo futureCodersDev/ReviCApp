@@ -30,7 +30,7 @@
       <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subjects <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li class="dropdown-submenu"> <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li><a tabindex="-1" href="#">2nd level dropdown</a></li> <li><a tabindex="-1" href="#">2nd level dropdown</a></li> <li class="dropdown-submenu"> <a class="test" href="#">Another dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li><a href="#">3rd level dropdown</a></li> <li><a href="#">3rd level dropdown</a></li> </ul> </li> </ul> </li>
+                <li class="dropdown-submenu"> <a class="test" href="#">New dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li><a href="#">2nd level dropdown</a></li> <li><a href="#">2nd level dropdown</a></li> <li class="dropdown-submenu"> <a class="test" href="#">Another dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li><a href="#">3rd level dropdown</a></li> <li><a href="#">3rd level dropdown</a></li> </ul> </li> </ul> </li>
                 <li><a href="#">English</a></li>
                 <li><a href="#">Science</a></li>
                 <li><a href="#">History</a></li>

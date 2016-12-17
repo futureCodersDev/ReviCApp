@@ -1,0 +1,18 @@
+
+myFunction([{"subjects":
+				
+						[ 
+								{"subject":"Maths"},
+								{"subject":"English"},
+								{"subject":"Science"}
+							]},
+{"topics":
+				
+
+						[
+									{"topic":"Algerbra"}]},
+{"subtopics":
+				
+							[
+									{"subtopic":"simulteanous Eqations"}]
+}]);

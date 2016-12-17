@@ -1,6 +1,5 @@
 package RevAPI.Impl;
 
-import RevAPI.RevActivity;
 import RevAPI.RevSubtopic;
 
 import java.util.List;
@@ -11,9 +10,10 @@ import java.util.List;
 public class RevSubtopicImpl implements RevSubtopic {
     private String name;
     private String description;
-    private List<RevActivity> activities;
+    private List<RevActivityImpl> activities;
 
-    public RevSubtopicImpl(String name, String description, List<RevActivity> activities) {
+    public RevSubtopicImpl(String name, String description, List<RevActivityImpl> activities) {
+
         this.name = name;
         this.description = description;
         this.activities = activities;
@@ -23,11 +23,23 @@ public class RevSubtopicImpl implements RevSubtopic {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public List<RevActivity> getActivities() {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<RevActivityImpl> getActivities() {
         return activities;
+    }
+
+    public void setActivities(List<RevActivityImpl> activities) {
+        this.activities = activities;
     }
 }

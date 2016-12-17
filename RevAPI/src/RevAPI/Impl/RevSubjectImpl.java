@@ -17,6 +17,7 @@ public class RevSubjectImpl implements RevSubject {
     private List<RevTopic> topics;
 
     public RevSubjectImpl(String subjectName, Examboard examboard, Level level, List<RevTopic> topics) {
+
         this.subjectName = subjectName;
         this.examboard = examboard;
         this.level = level;
@@ -27,15 +28,31 @@ public class RevSubjectImpl implements RevSubject {
         return subjectName;
     }
 
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
     public Examboard getExamboard() {
         return examboard;
+    }
+
+    public void setExamboard(Examboard examboard) {
+        this.examboard = examboard;
     }
 
     public Level getLevel() {
         return level;
     }
 
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
     public List<RevTopic> getTopics() {
         return topics;
+    }
+
+    public void setTopics(List<RevTopic> topics) {
+        this.topics = topics;
     }
 }

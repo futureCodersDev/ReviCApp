@@ -21,7 +21,15 @@ public class RevSchoolImpl implements RevSchool {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<RevStudent> getStudents() {
         return students;
+    }
+
+    public void setStudents(List<RevStudent> students) {
+        this.students = students;
     }
 }

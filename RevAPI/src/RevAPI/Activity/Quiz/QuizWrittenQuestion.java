@@ -25,19 +25,39 @@ public class QuizWrittenQuestion {
         return question;
     }
 
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
     public String getModelAnswer() {
         return modelAnswer;
+    }
+
+    public void setModelAnswer(String modelAnswer) {
+        this.modelAnswer = modelAnswer;
     }
 
     public List<String> getKeyTerms() {
         return keyTerms;
     }
 
+    public void setKeyTerms(List<String> keyTerms) {
+        this.keyTerms = keyTerms;
+    }
+
     public String getFeedback() {
         return feedback;
     }
 
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
     public int getPointValue() {
         return pointValue;
+    }
+
+    public void setPointValue(int pointValue) {
+        this.pointValue = pointValue;
     }
 }

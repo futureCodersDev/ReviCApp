@@ -22,15 +22,31 @@ public class QuizMCQuestion {
         return question;
     }
 
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
     public HashMap<String, Boolean> getAnswers() {
         return answers;
+    }
+
+    public void setAnswers(HashMap<String, Boolean> answers) {
+        this.answers = answers;
     }
 
     public String getFeedback() {
         return feedback;
     }
 
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
     public int getPointValue() {
         return pointValue;
+    }
+
+    public void setPointValue(int pointValue) {
+        this.pointValue = pointValue;
     }
 }

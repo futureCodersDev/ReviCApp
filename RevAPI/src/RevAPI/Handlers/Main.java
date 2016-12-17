@@ -1,21 +1,16 @@
 package RevAPI.Handlers;
 
-import RevAPI.Activity.Impl.RevQuizActivityImpl;
-import RevAPI.Activity.Impl.RevVideoActivityImpl;
+import RevAPI.Activity.Impl.*;
 import RevAPI.Activity.Quiz.QuizMCQuestion;
 import RevAPI.Activity.Quiz.QuizWrittenQuestion;
 import RevAPI.Activity.Util.Activity;
 import RevAPI.Impl.*;
-import RevAPI.RevActivity;
 import RevAPI.RevCoreBuilder;
-import RevAPI.RevSubtopic;
-import RevAPI.RevTopic;
 import RevAPI.Util.Examboard;
 import RevAPI.Util.Level;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,68 +21,29 @@ public class Main {
     private static RevCoreImpl rc;
 
     public static void main(String[] args) {
-        List<RevActivityImpl> activities = new ArrayList<>();
-        List<RevTopic> topics = new ArrayList<>();
-        List<RevSubtopic> subtopics = new ArrayList<>();
         List<RevSubjectImpl> subjects = new ArrayList<>();
-
         List<RevStudentImpl> students = new ArrayList<>();
-
-        HashMap<RevActivity, Boolean> stuActivities = new HashMap<>();
-
+        List<RevTopicImpl> topics = new ArrayList<>();
+        List<RevSubtopicImpl> subtopics = new ArrayList<>();
+        List<RevActivityImpl> activities = new ArrayList<>();
         List<QuizMCQuestion> mcQuestions = new ArrayList<>();
-
-        HashMap<String, Boolean> answers = new HashMap<>();
-
         List<String> keyTerms = new ArrayList<>();
-        activities.add(new RevQuizActivityImpl("A quiz", "A simple quiz!", new Date(), 10, "A URL", Activity.QUIZ, mcQuestions, new QuizWrittenQuestion("Question 2", "A model answer", keyTerms, "", 30), 10));
-        activities.add(new RevVideoActivityImpl("video activity", "A video activity", new Date(), 3, "URL", Activity.VIDEO));
-        answers.put("Answer 1", false);
-        answers.put("Answer 2", true);
-        answers.put("Answer 3", false);
 
-        keyTerms.add("Key term 1");
-        keyTerms.add("Key term 2");
+        keyTerms.add("Keyterm 1");
+        keyTerms.add("Keyterm 2");
+        keyTerms.add("Keyterm 3");
 
-        mcQuestions.add(new QuizMCQuestion("A question", answers, "", 20));
+        activities.add(new RevExampleActivityImpl("An Example activity", "An example activity", new Date(), 10, "A URL to the resource", Activity.EXAMPLES));
+        activities.add(new RevGameActivityImpl("A Game activity", "A Game activity", new Date(), 5, "A URL to the resource", Activity.GAME));
+        activities.add(new RevQuizActivityImpl("A Quiz activity", "A Quiz activity", new Date(), 20, "A URL to the resource", Activity.QUIZ, mcQuestions, new QuizWrittenQuestion("For x in y, find z", "...Impossible!", keyTerms, "Your feedback...", 25), 50));
+        activities.add(new RevRevisionActivityImpl("A Revision activity", "A Revision activity", new Date(), 25, "A URL to the resource", Activity.REVISION));
+        activities.add(new RevVideoActivityImpl("A Video activity", "A Video activity", new Date(), 30, "A URL to the resource", Activity.VIDEO));
 
-        subtopics.add(new RevSubtopicImpl("Simultaneous Equations", "Finding the missing values", activities));
-
-        topics.add(new RevTopicImpl("Algebra", "Working with non-numerical characters", subtopics));
+        subtopics.add(new RevSubtopicImpl("Linear Equations", "Linear Equations", activities));
+        topics.add(new RevTopicImpl("Algebra", "Relates to Algebra and Algebraic Equations", subtopics));
 
         subjects.add(new RevSubjectImpl("Mathematics", Examboard.EDEXCEL, Level.GCSE, topics));
 
-        Boolean b = false;
-        for (RevActivity r : activities) {
-            b = !b;
-            stuActivities.put(r, b);
-
-            /*
-            Iterates through activities, adds to the HashMap,
-            flipping the Boolean between false and true for each iteration
-             */
-        }
-
-
-        students.add(new RevStudentImpl("John", "Doe", "URL to Profile Picture", "JohnDoe47", "12345", new Date(), "johndoe47@gmail.com", stuActivities));
-
-        rc = RevCoreBuilder.getCore(activities, subjects, students);
-        RevQuizActivityImpl r;
-
-        System.out.println("Size of activities list: " + rc.getActivities().size());
-        switch (rc.getActivities().get(0).getActivityType()) {
-            case EXAMPLES:
-            case GAME:
-            case QUIZ:
-                r = ((RevQuizActivityImpl) rc.getActivities().get(0));
-
-                System.out.println("Value for answer 2: " + r.getMultichoiceQuestions().get(0).getAnswers().get("Answer 2"));
-            case REVISION:
-            case VIDEO:
-        }
-        System.out.println("The first student's completion list for the currently added activities: ");
-        for (RevActivityImpl actv : rc.getActivities()) {
-            System.out.println(actv.getActivityName() + ": " + rc.getStudents().get(0).getCompletedActivities().get(actv));
-        }
+        rc = RevCoreBuilder.getCore();
     }
 }

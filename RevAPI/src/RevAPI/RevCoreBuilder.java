@@ -11,7 +11,7 @@ import java.util.List;
  * Created by fcuser1 on 14/12/2016.
  */
 public class RevCoreBuilder {
-    public static RevCoreImpl getCore(List<RevActivityImpl> activities, List<RevSubjectImpl> subjects, List<RevStudentImpl> students) {
-        return new RevCoreImpl(activities, subjects, students);
+    public static RevCoreImpl getCore(List<RevSubjectImpl> subjects, List<RevStudentImpl> students) {
+        return new RevCoreImpl(subjects, students);
     }
 }

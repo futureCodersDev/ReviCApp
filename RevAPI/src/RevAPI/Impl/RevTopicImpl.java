@@ -11,9 +11,9 @@ import java.util.List;
 public class RevTopicImpl implements RevTopic {
     private String topicName;
     private String description;
-    private List<RevSubtopic> subtopics;
+    private List<RevSubtopicImpl> subtopics;
 
-    public RevTopicImpl(String topicName, String description, List<RevSubtopic> subtopics) {
+    public RevTopicImpl(String topicName, String description, List<RevSubtopicImpl> subtopics) {
 
         this.topicName = topicName;
         this.description = description;
@@ -36,11 +36,11 @@ public class RevTopicImpl implements RevTopic {
         this.description = description;
     }
 
-    public List<RevSubtopic> getSubtopics() {
+    public List<RevSubtopicImpl> getSubtopics() {
         return subtopics;
     }
 
-    public void setSubtopics(List<RevSubtopic> subtopics) {
+    public void setSubtopics(List<RevSubtopicImpl> subtopics) {
         this.subtopics = subtopics;
     }
 }

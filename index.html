@@ -52,8 +52,9 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Profile <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Login</a></li>
-                <li><a herf="#">Progress</a></li>
+                <li><a button data-toggle="modal" data-target="#loginform" href="#">Login</a></li>
+                <li><a button data-toggle="modal" data-target="#signupform" href="#">Sign up</a></li>
+                <li><a href="#">Progress</a></li>
             </ul>
         </li>
     
@@ -78,7 +79,65 @@
   </div>
 </div>
 
-
+<div class="modal fade" tabindex="-1" role="dialog" id="loginform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+       <form>
+       <p>Username:</p>
+       	<input type="text" placeholder="Username" required="true" name="username">
+       	<br>
+       	<p>Password:</p>
+       	<input type="password" name="password" required="true" placeholder="Password">
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="signupform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+       <form>
+       <p>Username:</p>
+       	<input type="text" placeholder="Username" required="true" name="username">
+       	<p>Name:</p>
+       	<input type="text" name="name" required="true" placeholder="Name">
+       	<p>Age:</p>
+       	<input type="number" name="age" required="true" placeholder="Age">
+       	<p>Year Group:</p>
+       	<input type="number" name="yeargroup" required="true" placeholder="Year Group">
+       	<p>Email:</p>
+       	<input type="email" name="email" required="true" placeholder="Email">
+       	<p>Password</p>
+       	<input type="password" name="passwor2d" required="true" placeholder="Password">
+       	<p>Do You Accept<a href="tandcs.html"> T's And C's</a></p>
+       	<form>
+  <input type="radio" name="yes" value="Yes" checked> Yes<br>
+  <input type="radio" name="no" value="No"> No<br>
+  
+</form>
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>
 <script>

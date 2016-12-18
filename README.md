@@ -1,4 +1,4 @@
-# ReviCApp
+# Revi-C App
 Front-end HTML & CSS web code, for the Revi-C web app.
 
 # Languages & Frameworks

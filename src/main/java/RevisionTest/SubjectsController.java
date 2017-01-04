@@ -12,7 +12,7 @@ public class SubjectsController {
     private static final String template = "Subjects: %s";
     private final AtomicLong counter = new AtomicLong();
 
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin(origins = "http://localhost")
     @GetMapping("/subjects")
     public Subjects subjects(@RequestParam(value="name", defaultValue="none") String name) {
         return new Subjects(counter.incrementAndGet(),

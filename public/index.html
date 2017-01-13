@@ -2,14 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subject list test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="Revision.js"></script>
+    <title>Revi-C Revision App</title>
 </head>
 <body>
-<div>
-    <p class="subjects-id">The ID is </p>
-    <p class="subjects-content">The content is </p>
+<div data-ng-app="myApp" data-ng-controller="menuCtrl">
+    <div id="menu">
+    <p>Your revision subjects:</p>
+        <ul data-ng-repeat="subject in subjectList" id="main">
+            <li>
+                <span class="subjMenuItem">{{subject.subjectName}}</span>
+                <ul data-ng-repeat="topic in subject.topics">
+                    <li>
+                        <span class="topicMenuItem">{{topic.topicName}}</span>
+                        <ul data-ng-repeat="subtopic in topic.subtopics">
+                            <button data-ng-disabled = "hasActivities(subtopic)" data-ng-click="showProgress(subtopic)">
+                                <span class=subtopicMenuItem">{{subtopic.name}}</span>
+                            </button>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="progress" ng-show="showActivities()">
+        <p>Activities progress list:</p>
+        <ul data-ng-repeat='activity in activities'>
+            <li>
+                <span class='progressItem'>{{activity.activityName}} -- {{activity.finalResult}} / {{activity.maxResult}}</span>
+            </li>
+        </ul>
+    </div>
 </div>
+
+
+<!-- scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+<script src="js/Revision.js"></script>
 </body>
 </html>

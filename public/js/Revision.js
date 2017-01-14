@@ -1,7 +1,7 @@
 var app = angular.module("myApp", []);
 
 //controller for menu items on home page
-app.controller("menuCtrl", function($scope, $http, $document) {
+app.controller("menuCtrl", function($scope, $http) {
     //initialising the subject list
     $http.get("/subjectList")
 	.then(function(response) {

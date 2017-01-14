@@ -5,6 +5,6 @@ package RevisionTest.Util;
  */
 public enum Activity {
     VIDEO,
-    READING,
+    PASTPAPER,
     QUIZ,
 }

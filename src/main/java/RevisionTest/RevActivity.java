@@ -12,18 +12,18 @@ public class RevActivity {
     private Date completionDate;
     private int finalResult;
     private int maxResult;  //added to allow progress to be shown
-    private String resourceURL;
+    private String resourceID;
     private Activity activityType;
-    private String fromYear;
 
-    public RevActivity(String activityName, String description, Date completionDate, int finalResult, String resourceURL, Activity activityType, String fromYear) {
+
+    public RevActivity(String activityName, String description, Date completionDate, int finalResult, int maxResult, String resourceID, Activity activityType) {
         this.activityName = activityName;
         this.description = description;
         this.completionDate = completionDate;
         this.finalResult = finalResult;
-        this.resourceURL = resourceURL;
+        this.maxResult = maxResult;
+        this.resourceID = resourceID;
         this.activityType = activityType;
-        this.fromYear = fromYear;
     }
 
     public RevActivity(String activityName){
@@ -32,9 +32,8 @@ public class RevActivity {
         this.completionDate = new Date();
         this.finalResult = 0;
         this.maxResult = 5;
-        this.resourceURL = resourceURL;
+        this.resourceID = resourceID;
         this.activityType = Activity.QUIZ;
-        this.fromYear = fromYear;
     }
 
     //getters and setters
@@ -73,11 +72,11 @@ public class RevActivity {
         this.maxResult = maxResult;
     }
 
-    public String getResourceURL() {
-        return resourceURL;
+    public String getResourceID() {
+        return resourceID;
     }
-    public void setResourceURL(String resourceURL) {
-        this.resourceURL = resourceURL;
+    public void setResourceID(String resourceID) {
+        this.resourceID = resourceID;
     }
 
     public Activity getActivityType() {
@@ -87,10 +86,20 @@ public class RevActivity {
         this.activityType = activityType;
     }
 
-    public String getFromYear() {
-        return fromYear;
+
+    //get resource
+    public RevVidResource generateVidResource(String resourceID) {
+        RevVidResource vidContent = new RevVidResource(resourceID);
+        return vidContent;
     }
-    public void setFromYear(String fromYear) {
-        this.fromYear = fromYear;
+
+    public RevPpqResource generatePpqContent(String resourceID) {
+        RevPpqResource ppqContent = new RevPpqResource(resourceID);
+        return ppqContent;
     }
+
+//    public RevMcqResource generateMcqContent(String resourceID){
+//        RevMcqResource mcqContent = new RevMcqResource(resourceID);
+//        return McqContent;
+//    }
 }

@@ -10,20 +10,31 @@ public class RevPpqResource {
     private String resID;
     private String questionText;
     private List<String> keyTerms;
+    private String answer;
     private String feedback;
     private int maxResult;
+    private int finalResult;
 
-    public RevPpqResource(String resID, String questionText, List<String> keyTerms, String feedback, int maxResult) {
+    public RevPpqResource(String resID, String questionText, List<String> keyTerms, String feedback, int maxResult, int finalResult) {
         this.resID = resID;
         this.questionText = questionText;
         this.keyTerms = keyTerms;
+        this.answer = "";
         this.feedback = feedback;
         this.maxResult = maxResult;
+        this.finalResult = finalResult;
     }
 
     public RevPpqResource(String resID){
         this.resID = resID;
         initialisePpqResource();
+    }
+
+    //constructor for errors
+    public RevPpqResource(String resID, String feedback, int finalResult) {
+        this.resID = resID;
+        this.feedback = feedback;
+        this.finalResult = finalResult;
     }
 
     //getters and setters
@@ -48,11 +59,14 @@ public class RevPpqResource {
         this.keyTerms = keyTerms;
     }
 
+    public String getAnswer() { return answer; }
+    public void setAnswer(String answer) { this.answer = answer; }
+
     public String getFeedback() {
         return feedback;
     }
     public void setFeedback(String answer) {
-        this.feedback = generateFeedback(answer, this.maxResult);
+        this.feedback = generateFeedback();
     }
 
     public int getMaxResult() {
@@ -60,6 +74,18 @@ public class RevPpqResource {
     }
     public void setMaxResult(int maxResult) {
         this.maxResult = maxResult;
+    }
+
+    public int getFinalResult() {
+        return finalResult;
+    }
+    public void setFinalResult(int finalResult) {
+        this.finalResult = finalResult;
+    }
+
+    public RevPpqResource processResults(){
+        this.feedback = generateFeedback();
+        return this;
     }
 
     //get resource content from database
@@ -98,20 +124,22 @@ public class RevPpqResource {
         };
     }
 
-    private String generateFeedback(String answer, int maxResult){
+    private String generateFeedback(){
         String feedback = "";
         int result = 0;
         //REPLACE here with checking code ***
 
         if(result >= maxResult) {
-            result = maxResult;
+            this.finalResult = maxResult;
+        }
+        else{
+            this.finalResult = result;
         }
         feedback = feedback + "<p>Your result is: " + result + " </p><p>Correct answer:  x = 3 and y = 2</p>"
                 + "<p>You included the following key points: </p>";
         for(String keyTerm: this.keyTerms){
             feedback = feedback + "<p>" + keyTerm + "</p> ";
         }
-
         return feedback;
     }
 }

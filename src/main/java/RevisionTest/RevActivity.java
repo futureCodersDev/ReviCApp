@@ -28,12 +28,7 @@ public class RevActivity {
 
     public RevActivity(String activityName){
         this.activityName = activityName;
-        this.description = "";
-        this.completionDate = new Date();
-        this.finalResult = 0;
-        this.maxResult = 5;
-        this.resourceID = resourceID;
-        this.activityType = Activity.QUIZ;
+        initialiseActivity();
     }
 
     //getters and setters
@@ -68,9 +63,7 @@ public class RevActivity {
     public int getMaxResult() {
         return maxResult;
     }
-    public void setMaxResult(int maxResult) {
-        this.maxResult = maxResult;
-    }
+    public void setMaxResult(int maxResult) { this.maxResult = maxResult; }
 
     public String getResourceID() {
         return resourceID;
@@ -88,13 +81,13 @@ public class RevActivity {
 
 
     //get resource
-    public RevVidResource generateVidResource(String resourceID) {
-        RevVidResource vidContent = new RevVidResource(resourceID);
+    public RevVidResource generateVidResource() {
+        RevVidResource vidContent = new RevVidResource(this.resourceID);
         return vidContent;
     }
 
-    public RevPpqResource generatePpqContent(String resourceID) {
-        RevPpqResource ppqContent = new RevPpqResource(resourceID);
+    public RevPpqResource generatePpqContent() {
+        RevPpqResource ppqContent = new RevPpqResource(this.resourceID);
         return ppqContent;
     }
 
@@ -102,4 +95,21 @@ public class RevActivity {
 //        RevMcqResource mcqContent = new RevMcqResource(resourceID);
 //        return McqContent;
 //    }
+
+    private void initialiseActivity(){
+        //REPLACE with code to read from database ***
+        this.completionDate = new Date();
+        this.finalResult = 0;
+        this.description = "";
+        this.resourceID = resourceID;
+        if(this.activityName.equals("VID1")) {
+            this.activityType = Activity.VIDEO;
+        }
+        else if(this.activityName.equals("PPQ1")) {
+            this.activityType = Activity.PASTPAPER;
+        }
+        else if(this.activityName.equals("MCQ1")) {
+            this.activityType = Activity.QUIZ;
+        }
+    }
 }

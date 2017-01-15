@@ -66,7 +66,7 @@ public class RevPpqResource {
         return feedback;
     }
     public void setFeedback(String answer) {
-        this.feedback = generateFeedback();
+        this.feedback = generateFeedback(answer);
     }
 
     public int getMaxResult() {
@@ -83,62 +83,45 @@ public class RevPpqResource {
         this.finalResult = finalResult;
     }
 
-    public RevPpqResource processResults(){
-        this.feedback = generateFeedback();
-        return this;
-    }
-
     //get resource content from database
     private void initialisePpqResource(){
         //REPLACE with code to get resource with ID resID from database
-        if(resID == "PPQ1"){
+        if(resID.equals("PPQ1")){
             this.questionText =
                     "<p>Solve the simultaneous equations (4 marks)</p>" +
                     "<p>5x + 2y = 11</p>" +
                     "<p>4x – 3y = 18</p>" +
                     "<p>4x – 3y = 18</p>";
-            this.keyTerms = new ArrayList<String>(Arrays.asList("x = 3",
-                    "y = –2",
-                    "15x + 6y = 33",
+            this.keyTerms = new ArrayList<String>(Arrays.asList("15x + 6y = 33",
                     "8x – 6y = 36",
                     "23x = 69",
                     "5 × 3 + 2y = 11",
-                    "x=3",
-                    "y=–2",
-                    "15x+6y=33",
-                    "8x–6y=36",
-                    "23x=69",
-                    "5×3+2y=11",
                     "x = (11 - 2y) / 5",
                     "4 x ((11 - 2y) / 5) - 3y = 18",
                     "44 - 8y - 15y = 90",
-                    "-46 = 23y",
-                    "y = -2",
-                    "x=(11-2y)/5",
-                    "4x((11-2y)/5)-3y=18",
-                    "44-8y-15y=90",
-                    "-46=23y",
-                    "y=-2"));
+                    "-46 = 23y"));
+            this.answer = "";
             this.feedback = "";
             this.maxResult = 4;
+            this.finalResult = 0;
         };
     }
 
-    private String generateFeedback(){
+    private String generateFeedback(String answer){
         String feedback = "";
         int result = 0;
         //REPLACE here with checking code ***
+        feedback = feedback + "<p>The correct answer:  x = 3 and y = 2</p>"
+                + "<p>You could have included the following key points: </p>";
+        for(String keyTerm: this.keyTerms){
+            feedback = feedback + "<p>" + keyTerm + "</p> ";
+        }
 
         if(result >= maxResult) {
             this.finalResult = maxResult;
         }
         else{
             this.finalResult = result;
-        }
-        feedback = feedback + "<p>Your result is: " + result + " </p><p>Correct answer:  x = 3 and y = 2</p>"
-                + "<p>You included the following key points: </p>";
-        for(String keyTerm: this.keyTerms){
-            feedback = feedback + "<p>" + keyTerm + "</p> ";
         }
         return feedback;
     }

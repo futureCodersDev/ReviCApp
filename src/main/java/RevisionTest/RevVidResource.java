@@ -61,8 +61,8 @@ public class RevVidResource {
     public String getFeedback() {
         return feedback;
     }
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setFeedback(String answer) {
+        this.feedback = generateFeedback(answer);
     }
 
     public int getMaxResult() { return maxResult; }
@@ -70,26 +70,49 @@ public class RevVidResource {
 
     public int getFinalResult() { return finalResult; }
     public void setFinalResult(int maxResult) { this.finalResult = finalResult; }
+
+
     //get resource content from database
     private void initialiseVidResource(){
         //REPLACE with code to get resource with ID resID from database
-        if(resID == "VID1"){
-            this.embedText = "";
+        if(this.resID.equals("VID1")){
+            String resText = "<iframe width=\"560\" height=\"315\"";
+            resText = resText + "src=\"https://www.youtube.com/embed/8ockWpx2KKI?rel=0\"";
+            resText = resText + "frameborder=\"0\" allowfullscreen></iframe>";
+            this.embedText =  resText;
+            this.keyTerms = new ArrayList<String>(Arrays.asList("substitute", "check", "back"));
             this.answer = "";
-            this.keyTerms = new ArrayList<String>(Arrays.asList("simultaneous","equations"));
-            this.feedback = "Question complete";
-        };
+            this.feedback = "Here you learned how, in some situations it is best to substitute one equation into another to provide the solution";
+            this.maxResult = 3;
+            this.finalResult = 0;
+        }
+        else{
+            this.embedText = "No resource available";
+            this.keyTerms = new ArrayList<String>();
+            this.answer = "";
+            this.feedback = "No feedback";
+            this.maxResult = 3;
+            this.finalResult = 0;
+        }
     }
 
-    public RevVidResource processResults(){
-        this.feedback = generateFeedback();
-        return this;
-    }
-
-    private String generateFeedback(){
+    private String generateFeedback(String answer){
         String feedback = "";
         int result = 0;
-        //REPLACE here with checking code ***
+
+        this.answer = answer;
+        if(!this.answer.equals("")) {
+            //REPLACE here with checking code ***
+            if(this.resID.equals("VID1")) {
+                feedback = "<p>These are the relevant key terms for this video: </p>";
+                for(String keyTerm:this.keyTerms){
+                    feedback = feedback + "<p>" + keyTerm + "</p>";
+                }
+            }
+        }
+        else {
+            feedback = "No answer to evaluate";
+        }
 
         if(result >= maxResult) {
             this.finalResult = maxResult;
@@ -97,12 +120,6 @@ public class RevVidResource {
         else {
             this.finalResult = result;
         }
-        feedback = feedback + "<p>Your result is: " + result + " </p><p>Correct answer:  x = 3 and y = 2</p>"
-                + "<p>You included the following key points: </p>";
-        for(String keyTerm: this.keyTerms){
-            feedback = feedback + "<p>" + keyTerm + "</p> ";
-        }
-
         return feedback;
     }
 }

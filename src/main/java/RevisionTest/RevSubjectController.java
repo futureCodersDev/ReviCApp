@@ -11,7 +11,7 @@ public class RevSubjectController {
 
     private static final String template = "Subject: %s";
 
-    //@CrossOrigin(origins = "http://localhost")
+    @CrossOrigin(origins = "https://futurecodersdev.github.io")
     @GetMapping("/subject")
     public RevSubject subject(@RequestParam(value="name", defaultValue="none") String name) {
         return new RevSubject(name);

@@ -89,9 +89,7 @@ public class RevPpqResource {
         if(resID.equals("PPQ1")){
             this.questionText =
                     "<p>Solve the simultaneous equations (4 marks)</p>" +
-                    "<p>5x + 2y = 11</p>" +
-                    "<p>4x – 3y = 18</p>" +
-                    "<p>4x – 3y = 18</p>";
+                    "<p>5x + 2y = 11</p>" + "<p>4x – 3y = 18</p>";
             this.keyTerms = new ArrayList<String>(Arrays.asList("15x + 6y = 33",
                     "8x – 6y = 36",
                     "23x = 69",

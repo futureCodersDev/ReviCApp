@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RestController
 public class RevSubtopicController {
 
-    //@CrossOrigin(origins = "http://localhost")
+    @CrossOrigin(origins = "https://futurecodersdev.github.io")
     @GetMapping("/subtopic")
     public RevSubtopic subtopic(@RequestParam(value="name", defaultValue="none") String subtopic_name) {
         return new RevSubtopic(subtopic_name);

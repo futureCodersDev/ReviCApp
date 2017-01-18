@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RestController
 public class SubjectListController {
 
-    //@CrossOrigin(origins = "http://localhost")
+    @CrossOrigin(origins = "https://futurecodersdev.github.io")
     @GetMapping("/subjectList")
     public SubjectList subjectList(@RequestParam(value="user", defaultValue="none") String username) {
         return new SubjectList(username);

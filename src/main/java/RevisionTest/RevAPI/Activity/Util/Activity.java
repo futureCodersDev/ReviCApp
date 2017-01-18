@@ -1,4 +1,4 @@
-package RevAPI.Activity.Util;
+package RevisionTest.RevAPI.Activity.Util;
 
 /**
  * Created by fcuser1 on 14/12/2016.

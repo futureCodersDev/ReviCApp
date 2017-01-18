@@ -1,7 +1,8 @@
-package RevAPI.Impl;
+package RevisionTest.RevAPI.Impl;
 
-import RevAPI.RevActivity;
-import RevAPI.RevStudent;
+
+import RevisionTest.RevAPI.RevActivity;
+import RevisionTest.RevAPI.RevStudent;
 
 import java.util.Date;
 import java.util.HashMap;

@@ -1,6 +1,7 @@
-package RevAPI.Impl;
+package RevisionTest.RevAPI.Impl;
 
-import RevAPI.RevSubtopic;
+
+import RevisionTest.RevAPI.RevSubtopic;
 
 import java.util.List;
 

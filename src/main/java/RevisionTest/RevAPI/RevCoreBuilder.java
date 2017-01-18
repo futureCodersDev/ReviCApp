@@ -1,9 +1,8 @@
-package RevAPI;
+package RevisionTest.RevAPI;
 
-import RevAPI.Impl.RevActivityImpl;
-import RevAPI.Impl.RevCoreImpl;
-import RevAPI.Impl.RevStudentImpl;
-import RevAPI.Impl.RevSubjectImpl;
+import RevisionTest.RevAPI.Impl.RevCoreImpl;
+import RevisionTest.RevAPI.Impl.RevStudentImpl;
+import RevisionTest.RevAPI.Impl.RevSubjectImpl;
 
 import java.util.List;
 

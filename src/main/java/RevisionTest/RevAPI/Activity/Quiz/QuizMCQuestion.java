@@ -1,4 +1,4 @@
-package RevAPI.Activity.Quiz;
+package RevisionTest.RevAPI.Activity.Quiz;
 
 import java.util.HashMap;
 

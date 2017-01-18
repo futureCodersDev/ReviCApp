@@ -1,8 +1,9 @@
-package RevAPI.Activity.Impl;
+package RevisionTest.RevAPI.Activity.Impl;
 
-import RevAPI.Activity.Util.Activity;
-import RevAPI.Impl.RevActivityImpl;
-import RevAPI.RevActivity;
+
+import RevisionTest.RevAPI.Activity.Util.Activity;
+import RevisionTest.RevAPI.Impl.RevActivityImpl;
+import RevisionTest.RevAPI.RevActivity;
 
 import java.util.Date;
 
@@ -11,7 +12,8 @@ import java.util.Date;
  */
 public class RevRevisionActivityImpl extends RevActivityImpl implements RevActivity {
 
-    public RevRevisionActivityImpl(String activityName, String description, Date completionDate, int finalResult, String resourceURL, Activity activityType) {
-        super(activityName, description, completionDate, finalResult, resourceURL, activityType);
+
+    public RevRevisionActivityImpl(String activityName, String description, Date completionDate, int finalResult, Activity activityType, boolean completed) {
+        super(activityName, description, completionDate, finalResult, activityType, completed);
     }
 }

@@ -1,10 +1,11 @@
-package RevAPI.Activity.Impl;
+package RevisionTest.RevAPI.Activity.Impl;
 
-import RevAPI.Activity.Quiz.QuizMCQuestion;
-import RevAPI.Activity.Quiz.QuizWrittenQuestion;
-import RevAPI.Activity.Util.Activity;
-import RevAPI.Impl.RevActivityImpl;
-import RevAPI.RevActivity;
+
+import RevisionTest.RevAPI.Activity.Quiz.QuizMCQuestion;
+import RevisionTest.RevAPI.Activity.Quiz.QuizWrittenQuestion;
+import RevisionTest.RevAPI.Activity.Util.Activity;
+import RevisionTest.RevAPI.Impl.RevActivityImpl;
+import RevisionTest.RevAPI.RevActivity;
 
 import java.util.Date;
 import java.util.List;
@@ -17,8 +18,8 @@ public class RevQuizActivityImpl extends RevActivityImpl implements RevActivity 
     private QuizWrittenQuestion writtenQuestion;
     private int result;
 
-    public RevQuizActivityImpl(String activityName, String description, Date completionDate, int finalResult, String resourceURL, Activity activityType, List<QuizMCQuestion> multichoiceQuestions, QuizWrittenQuestion writtenQuestion, int result) {
-        super(activityName, description, completionDate, finalResult, resourceURL, activityType);
+    public RevQuizActivityImpl(String activityName, String description, Date completionDate, int finalResult, Activity activityType, boolean completed, List<QuizMCQuestion> multichoiceQuestions, QuizWrittenQuestion writtenQuestion, int result) {
+        super(activityName, description, completionDate, finalResult, activityType, completed);
         this.multichoiceQuestions = multichoiceQuestions;
         this.writtenQuestion = writtenQuestion;
         this.result = result;
@@ -47,5 +48,4 @@ public class RevQuizActivityImpl extends RevActivityImpl implements RevActivity 
     public void setResult(int result) {
         this.result = result;
     }
-
 }

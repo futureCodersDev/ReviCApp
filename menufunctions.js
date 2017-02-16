@@ -27,14 +27,16 @@ $scope.populateTopic=function(subject){
 		}
         
     }
-	console.log($scope.subjectList[subjectPos].subjectName);
+	
     var topicHasSubTopics = "";
     for(var i=0; i<$scope.subjectList[subjectPos].topics.length; i++){
         if($scope.hasSubTopics($scope.subjectList[subjectPos].topics[i])){
             topicHasSubTopics="disabled";
             
         }
-    var listItem = "<li class='dropdown-submenu'><a href='#' >" + $scope.subjectList[subjectPos].topics.topicName + "<span class='caret'></span>" + "</a>" +
+		console.log($scope.subjectList[subjectPos].topics[i].topicName);
+	 // var listItem = "<li><a href='#'>" + $scope.subjectList[subjectPos].topics[i].topicName + "</a></li>"
+   var listItem = "<li class='dropdown-submenu'><a href='#' >" + $scope.subjectList[subjectPos].topics[i].topicName + "<span class='caret'></span>" + "</a>" +
         "<ul class='dropdown-menu' id="+$scope.subjectList[subjectPos].topics[i].topicName + " >" + "</ul></li>";
            $(thisSubject).append(listItem);
         }
@@ -45,16 +47,19 @@ $scope.populateTopic=function(subject){
 $scope.populateSubject=function(){
      $("#gcseMenu").empty();
     var subjectHasTopics = " ";
-	console.log($scope.subjectList);
     for(var i=0; i<$scope.subjectList.length; i++){
         if($scope.hasTopics($scope.subjectList[i])){
             subjectHasTopics="disabled";
             
         }
-    var listItem = "<li class='dropdown-submenu "+ subjectHasTopics+ "'  ><a href='#' data-ng-click=' "+ $scope.populateTopic($scope.subjectList[i].subjectName)+"' >" + $scope.subjectList[i].subjectName + "<span class='caret'></span>" + "</a>" +
-        "<ul class='dropdown-menu' id="+$scope.subjectList[i].subjectName + " >" + "</ul></li>";
-           $("#gcseMenu").append(listItem);
+    var listItem = "<li class='dropdown-submenu "+ subjectHasTopics+ "'  ><a href='#'>" + $scope.subjectList[i].subjectName + "<span class='caret'></span>" + "</a>" +
+        "<ul class='dropdown-menu' id='"+$scope.subjectList[i].subjectName + "' >" + "</ul></li>";
+    $("#gcseMenu").append(listItem);
+	
+	$scope.populateTopic($scope.subjectList[i].subjectName);
         }
+		
        }
+	   
 });
 
